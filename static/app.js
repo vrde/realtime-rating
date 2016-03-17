@@ -6,7 +6,7 @@ var delta = 0;
 
 
 function getCleanupTime () {
-    return new Date((new Date).getTime() - THRESHOLD).toISOString();
+    return new Date(new Date().getTime() - THRESHOLD).toISOString();
 }
 
 
