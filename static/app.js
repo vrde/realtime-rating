@@ -6,12 +6,9 @@ var delta = 0;
 
 
 function getCleanupTime () {
-    return new Date((new Date).getTime() + delta - THRESHOLD).toISOString();
+    return new Date((new Date).getTime() - THRESHOLD).toISOString();
 }
 
-function setDelta (serverTime) {
-    delta = (new Date).getTime() - new Date(serverTime);
-}
 
 function castVote (event) {
     var message = $(this).data('id');
@@ -55,7 +52,6 @@ function renderVotes () {
 function bindRecvSocket () {
     socket.on('new_vote', function (message) {
         var vote = message.vote;
-        setDelta(message.created_at);
 
         if (!votes[vote]) {
             votes[vote] = [];
