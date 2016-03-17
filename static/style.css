@@ -4,10 +4,11 @@ body {
     margin: 0;
     background-color: #333;
     color: #ddd;
+    position: relative;
 }
 
 #container {
-    height: 95%;
+    height: 100%;
     display: -webkit-flex; /* Safari */
     display: flex;
     -webkit-flex-direction: column; /* Safari */
@@ -41,5 +42,30 @@ body {
     bottom: 0;
     left: 0;
     opacity: 0.4;
+}
+
+form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+input {
+    width: 100%;
+    font-size: 30px;
+    line-height: 130%;
+    border: none;
+    padding: 0 10px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* IE/Edge */
+    user-select: none;           /* non-prefixed version, currently
+    not supported by any browser */
 }
 
