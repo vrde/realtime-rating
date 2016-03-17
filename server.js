@@ -10,14 +10,17 @@ var io = socketio(server);
 
 var THRESHOLD = 10000;
 
+var connection = null;
 
 r.connect({host: 'localhost', port: 28015}, function(err, conn) {
     if (err) throw err;
-    main(conn);
+    connection = conn;
+    main();
 });
 
 
-function main (connection) {
+function main () {
+    conn = connection;
     app.use('/static', express.static(__dirname + '/static'));
 
     app.get('/', function (req, res) {
