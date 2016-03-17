@@ -1,0 +1,45 @@
+html, body { height: 100%; }
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+    color: #ddd;
+}
+
+#container {
+    height: 95%;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction:         column;
+    -webkit-flex-wrap: nowrap; /* Safari */
+    flex-wrap:         nowrap;
+}
+
+.vote {
+    -webkit-flex-grow: 1; /* Safari */
+    flex-grow:         1;
+    font-size: 30px;
+    padding: 0 4vh;
+    color: #ccc;
+    position: relative;
+}
+
+.vote:nth-child(odd) {
+    background-color: #111;
+}
+
+.vote:nth-child(even) {
+    background-color: #141414;
+}
+
+.bar {
+    transition: width .2s ease-in-out;
+    background-color: tomato;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.4;
+}
+
