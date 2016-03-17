@@ -6,7 +6,12 @@ var delta = 0;
 
 
 function getCleanupTime () {
-    return new Date(new Date().getTime() - THRESHOLD).toISOString();
+    var now = new Date();
+    var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(),
+                          now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(),
+                          now.getUTCSeconds());
+
+    return new Date(nowUTC.getTime() - THRESHOLD).toISOString();
 }
 
 
@@ -20,7 +25,6 @@ function recalculateVotes () {
         votes[vote] = votes[vote].filter(function (m) { return m.created_at > getCleanupTime(); });
         score[vote] = votes[vote].length;
     }
-    console.log(votes);
     renderVotes();
 }
 
