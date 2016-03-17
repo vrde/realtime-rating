@@ -6,14 +6,13 @@ var delta = 0;
 
 
 function getCleanupTime () {
-    var now = new Date();
-    var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(),
-                          now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(),
-                          now.getUTCSeconds());
-
-    return new Date(nowUTC.getTime() - THRESHOLD).toISOString();
+    return new Date((new Date).getTime() + delta - THRESHOLD).toISOString();
 }
 
+
+function setDelta (serverTime) {
+    delta = (new Date).getTime() - new Date(serverTime);
+}
 
 function castVote (event) {
     var message = $(this).data('id');
@@ -25,6 +24,7 @@ function recalculateVotes () {
         votes[vote] = votes[vote].filter(function (m) { return m.created_at > getCleanupTime(); });
         score[vote] = votes[vote].length;
     }
+    console.log(votes);
     renderVotes();
 }
 
@@ -56,6 +56,7 @@ function renderVotes () {
 function bindRecvSocket () {
     socket.on('new_vote', function (message) {
         var vote = message.vote;
+        setDelta(message.created_at);
 
         if (!votes[vote]) {
             votes[vote] = [];
