@@ -23,7 +23,7 @@ I presented it at the [RealTime Web Lightning Talks](http://www.meetup.com/Berli
     },
     {
         "count":77,
-        "vote":"talk lauder please"
+        "vote":"talk louder please"
     },
     {
         "count":75,
