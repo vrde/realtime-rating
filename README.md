@@ -5,7 +5,7 @@ It looks a like this:
 
 ![](http://i.imgur.com/GpANWeO.jpg)
 
-I presented it at the [RealTime Web Lightning Talks](http://www.meetup.com/Berlin-Realtime-Web-Meetup/events/228632661/) and the audience casted something like 900 votes and it ended up like:
+I presented it at the [RealTime Web Lightning Talks](http://www.meetup.com/Berlin-Realtime-Web-Meetup/events/228632661/) and the audience has cast something like 900 votes and it ended up like:
 
 ```json
 [
